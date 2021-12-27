@@ -28,7 +28,6 @@
           <v-pagination
             v-model="page"
             :length="pagesLength"
-            circle
             :total-visible="5"
           ></v-pagination>
         </div>
@@ -83,7 +82,7 @@ export default {
     async searchPackages() {
       this.isLoading = true;
       const packagesResponse = await getSearchingPackages(
-        this.search,
+        encodeURIComponent(this.search),
         (this.page - 1) * 10
       );
       if (packagesResponse?.data) {

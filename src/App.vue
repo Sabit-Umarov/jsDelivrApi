@@ -8,7 +8,11 @@
         <v-card-text>
           <div class="footer">
             <span>Умаров Сабит</span>
-            <a href="#" class="footer__git">
+            <a
+              href="https://github.com/Sabit-Umarov/jsDelivryApi/"
+              class="footer__git"
+              target="_blank"
+            >
               <v-btn icon>
                 <v-icon>mdi-github</v-icon>
               </v-btn>
