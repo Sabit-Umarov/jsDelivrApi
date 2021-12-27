@@ -11,7 +11,16 @@
               label="Введите название пакета"
               prepend-inner-icon="mdi-magnify"
               :loading="isLoading"
-            ></v-text-field>
+            >
+              <v-icon
+                color="red"
+                @click="search = ''"
+                slot="append"
+                v-if="search"
+              >
+                mdi-close
+              </v-icon>
+            </v-text-field>
           </div>
         </v-card-title>
         <v-card-text v-if="!isLoading">
