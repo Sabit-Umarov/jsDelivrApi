@@ -9,7 +9,7 @@
           <div class="footer">
             <span>Умаров Сабит</span>
             <a
-              href="https://github.com/Sabit-Umarov/jsDelivryApi/"
+              href="https://github.com/Sabit-Umarov/jsDelivrApi/"
               class="footer__git"
               target="_blank"
             >
