@@ -49,6 +49,7 @@
 <script>
 import store from "@plugins/store";
 
+import _ from "lodash";
 import Package from "@components/Package";
 import PackageDetailModal from "@components/PackageDetailModal";
 import { getSearchingPackages } from "@api";
@@ -69,7 +70,7 @@ export default {
     isPackagesEmpty: false,
   }),
   watch: {
-    search() {
+    search: _.debounce(function () {
       if (!this.search) {
         return (this.isPackagesEmpty = false);
       }
@@ -77,7 +78,7 @@ export default {
       this.pagesLength = 1;
       this.page = 1;
       this.searchPackages();
-    },
+    }, 300),
     page() {
       this.searchPackages();
     },
@@ -97,7 +98,6 @@ export default {
       if (packagesResponse?.data) {
         this.packages = packagesResponse.data.objects;
         this.pagesLength = Math.round(packagesResponse.data.total / 10);
-        console.log(this.packages);
       }
       this.isPackagesEmpty = this.packages.length ? false : true;
       this.isLoading = false;
